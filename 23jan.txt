@@ -1,0 +1,233 @@
+Name - Jay Mahato
+Student ID - 962400952
+Date - 23 Jan 2023
+
+
+
+
+Q1 Reverse an array
+Q2 Sort an array
+Q3 Write a program to find frequency of maximum occurred element.
+Q4 Write program to find sum of two smallest elements in array
+Q5 Write program to find difference between largest and smallest element of array.
+
+
+Q1-
+                                                   
+ #include <iostream>  
+using namespace std;  
+  
+int main ()  
+{  
+    int arr[5], temp, i, j;
+    cout<<"Enter numbers: "<<endl;   
+    for (i = 0; i < 5; i++) 
+    {    
+        cin >> arr[i];  
+    }  
+      
+      
+    for ( i = 0, j = 4; i < 2; i++, j--)  
+    {     
+        temp = arr[i];  
+        arr[i] = arr[j];  
+        arr[j] = temp;  
+    }  
+    cout << "Reverse all elements of the array: " << endl;  
+    for ( i = 0; i < 5; i++)  
+    {  
+        cout << arr[i]<<endl; 
+    }  
+    return 0;  
+}  
+
+
+
+
+
+
+
+
+
+
+Q2-
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    
+    cout<<"Enter the size of array: "<<endl; 
+    cin>>n;
+    
+    int a[n];
+    
+    cout<<"Enter the elements: "<<endl;
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+        
+    }
+        
+    for(int i=0; i<n-1; i++)
+    {
+        for(int j=i+1; j<n; j++)
+        { if(a[i]>a[j])
+            {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+ cout<<"Array after shorting: "<<endl;
+   
+    for(int i=0; i<n; i++)
+      cout<<a[i]<<" ";
+      
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q3-
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout<<"Enter lenght of array"<<endl;
+    cin>>n;
+    int arr[n];
+    cout<<"Enter numbers"<<endl;
+    for (int i = 0; i <n; i++)
+    {
+        cin>>arr[i];
+    }
+
+    int counter=0;
+
+    for (int i = 0; i <n; i++)
+    {
+        int count=0;
+        for (int j = 0; j <n; j++)
+        {
+            if (arr[i]==arr[j])
+            {
+                count++;
+            }
+            
+        }
+        if (count>counter)
+        {
+            counter=count;
+        }
+        
+        
+    }
+    
+
+    for (int i = 0; i <n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }cout<<endl;
+
+    cout<<"the max freq is "<<counter<<endl;
+    
+    return 0;
+}
+
+
+
+
+
+Q4-
+#include<iostream>
+using namespace std;
+int main()
+{   int x;
+    cout<<"Enter size of array: "<<endl;
+    cin>>x;
+    int arr[x];
+    cout<<"Enter numbers: "<<endl;
+    for(int i=0 ; i<x ;i++){
+        cin>>arr[i];
+    }
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int smallest = INT_MAX;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] < smallest)
+        {
+            smallest = arr[i];
+        }
+    }
+ 
+    int second_smallest = INT_MAX;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] < second_smallest && arr[i] > smallest)
+        {
+            second_smallest = arr[i];
+        }
+    }
+   
+    cout << "The sum of smallest and second smallest element is: " << second_smallest+smallest << endl;
+    return 0;
+}}
+
+
+
+
+
+
+
+
+
+
+
+Q5-
+#include<iostream>
+using namespace std;
+
+int main(){
+    cout<<"Enter numbers of elements: "<<endl;
+    int n,large, small;
+    cin>>n;
+    int arr[n];
+    cout<<"Enters numbers: "<<endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin>>arr[i];
+    }
+
+large=small=arr[0];
+
+for(int i=1; i<n; ++i)
+{
+if(arr[i]>large)
+large=arr[i];
+
+if(arr[i]<small)
+small=arr[i];
+}
+    
+    cout<<"the difference between the largest and the smallest is "<<large-small<<endl;
+    
+    return 0;
+}
